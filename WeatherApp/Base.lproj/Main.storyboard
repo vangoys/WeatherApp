@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kdb-5N-hh9">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="t66-P3-wpf">
+            <objects>
+                <navigationController id="Kdb-5N-hh9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i6E-3L-Xki">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xGK-m1-wGc" kind="relationship" relationship="rootViewController" id="PQx-cG-bf0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7uz-S1-Uil" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1364" y="-83"/>
+        </scene>
+        <!--Weather App-->
+        <scene sceneID="Sh3-O3-Z9g">
+            <objects>
+                <viewController id="xGK-m1-wGc" customClass="MapViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2dd-de-d0b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vn2-MR-XER">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vn2-MR-XER" secondAttribute="bottom" id="Tt2-0Y-H5o"/>
+                            <constraint firstAttribute="trailing" secondItem="vn2-MR-XER" secondAttribute="trailing" id="gdp-F5-PZR"/>
+                            <constraint firstItem="vn2-MR-XER" firstAttribute="leading" secondItem="2dd-de-d0b" secondAttribute="leading" id="kcf-Wd-YKJ"/>
+                            <constraint firstItem="vn2-MR-XER" firstAttribute="top" secondItem="2dd-de-d0b" secondAttribute="top" id="yxq-Wv-iJg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="USM-jV-WOr"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Weather App" id="8Vi-Nq-8SF"/>
+                    <connections>
+                        <outlet property="mapView" destination="vn2-MR-XER" id="912-DB-3h3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0SP-Se-j90" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-471" y="-83"/>
+        </scene>
+        <!--Weather Detail-->
+        <scene sceneID="Jhb-OD-xhE">
+            <objects>
+                <viewController storyboardIdentifier="WeatherDetailViewController" title="Weather Detail" id="36j-5r-cZW" customClass="WeatherDetailViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NDf-mb-3Vj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEZ-e7-UQS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="8Hz-l2-V8d"/>
+                                </constraints>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-Jg-xfi">
+                                <rect key="frame" x="0.0" y="169" width="375" height="498"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="WeatherDataCellId" textLabel="8Ja-1S-yle" detailTextLabel="esQ-4c-Uzw" style="IBUITableViewCellStyleValue1" id="wSE-ya-lqk">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wSE-ya-lqk" id="1Se-qC-gE7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Ja-1S-yle">
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="esQ-4c-Uzw">
+                                                    <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HEZ-e7-UQS" firstAttribute="top" secondItem="xhr-VV-qW1" secondAttribute="top" id="7fG-x0-Pc6"/>
+                            <constraint firstItem="6NW-Jg-xfi" firstAttribute="bottom" secondItem="xhr-VV-qW1" secondAttribute="bottom" id="EHW-xq-jZ6"/>
+                            <constraint firstItem="6NW-Jg-xfi" firstAttribute="top" secondItem="HEZ-e7-UQS" secondAttribute="bottom" constant="-1" id="PhQ-Vr-m9b"/>
+                            <constraint firstItem="6NW-Jg-xfi" firstAttribute="leading" secondItem="xhr-VV-qW1" secondAttribute="leading" id="Tyi-vj-t1h"/>
+                            <constraint firstItem="6NW-Jg-xfi" firstAttribute="trailing" secondItem="xhr-VV-qW1" secondAttribute="trailing" id="qo5-gN-bJ7"/>
+                            <constraint firstItem="HEZ-e7-UQS" firstAttribute="leading" secondItem="xhr-VV-qW1" secondAttribute="leading" id="roL-w8-vqC"/>
+                            <constraint firstItem="HEZ-e7-UQS" firstAttribute="trailing" secondItem="xhr-VV-qW1" secondAttribute="trailing" id="x9y-uG-l67"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xhr-VV-qW1"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="HEZ-e7-UQS" id="mbw-mg-DZr"/>
+                        <outlet property="tableView" destination="6NW-Jg-xfi" id="j2B-PY-KUL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJQ-CV-Izd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="413.60000000000002" y="-83.208395802098963"/>
+        </scene>
+    </scenes>
+</document>
